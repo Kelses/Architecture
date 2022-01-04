@@ -1,0 +1,46 @@
+@import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+body {
+    font-family: 'Sora', sans-serif;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: hidden;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    color: white;
+}
+
+img {
+    background-position: center;
+    background-size: cover;
+}
+
+mdb-carousel {
+
+    mdb-carousel-item {
+        height: 100vh;
+        max-height: 100vh;
+    }
+}
+
+div.carousel-indicators {
+
+    button {
+        width: 2px;
+        height: 20px;
+        opacity: 1;
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+
+    button.active {
+        width: 6px;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}

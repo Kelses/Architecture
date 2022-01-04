@@ -1,0 +1,90 @@
+<div class="page">
+
+    <div class="overlay">
+
+        <div class="left-panel" [@background]="isTextDisplayed ? 'opaque' : 'translucent'">
+
+            <img src="assets/pictures/logo.png" alt="Logo">
+
+            <div class="navigation">
+
+                <div class="navigation-link previous">
+                    <a [routerLink]="getPreviousProjectUrl()">
+                        <svg height="36" width="36">
+                            <polyline points="26,2 10,18 26,34" style="fill:none;stroke:white;stroke-width:1" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="navigation-link next">
+                    <a [routerLink]="getNextProjectUrl()">
+                        <svg height="36" width="36">
+                            <polyline points="10,2 26,18 10,34" style="fill:none;stroke:white;stroke-width:1" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="text" [@text]="isTextDisplayed ? 'visible' : 'hidden'">
+
+                <h1>{{projectData?.title!}}</h1>
+
+                <p>{{projectData?.text!}}</p>
+
+            </div>
+
+            <div class="foot-bar">
+
+                <div class="home">
+                    <a routerLink="/home">
+                        <svg height="36" width="36">
+                            <polyline points="5,15 5,34 31,34 31,15" style="fill:none;stroke:white;stroke-width:1" />
+                            <polyline points="2,18 18,2 34,18" style="fill:none;stroke:white;stroke-width:1" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="toggle">
+                    <button (click)="toggleText()" [@button]="isTextDisplayed ? 'down' : 'up'">
+                        <svg height="36" width="36">
+                            <polyline points="2,10 18,26 34,10" style="fill:none;stroke:white;stroke-width:1" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="middle-panel">
+            
+            <div class="middle-top">
+                <span>{{projectData?.meta!}}</span>
+            </div>
+
+            <div class="middle-bottom">
+                <span>{{projectData?.title!}}</span>
+            </div>
+
+        </div>
+
+        <div class="right-panel">
+            
+        </div>
+
+    </div>
+
+    <mdb-carousel [indicators]="true" [interval]="getCarouselInterval()">
+
+        <mdb-carousel-item *ngFor="let picture of projectData?.pictures">
+            <img
+              src= {{picture}}
+              class="d-block w-100"
+              alt="Fire in Metal"
+            />
+          </mdb-carousel-item>
+
+    </mdb-carousel>
+
+</div>

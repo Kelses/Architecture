@@ -1,0 +1,32 @@
+<div class="page">
+
+    <div class="background">
+        <img src="../../assets/pictures/logo.png" alt="Logo">
+    </div>
+
+    <div class="grid">
+
+        <div class="grid-row" *ngFor="let row of rowArray">
+
+            <div class="square" *ngFor="let square of squareArray" [ngStyle]="getBackground(row, square)">
+
+                <a [routerLink]="getProjectLink(row, square)" *ngIf="shouldHaveLink(row, square)">
+                    <div class="text" *ngIf="containsText(row, square)" [ngClass]="{'left': isLeft(row), 'right': !isLeft(row)}">
+
+                        <div class="text-top">
+                            <span>{{getTopText(row, square)}}</span>
+                        </div>
+                        <div class="text-bottom">
+                            <span>{{getBottomText(row, square)}}</span>
+                        </div>
+
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

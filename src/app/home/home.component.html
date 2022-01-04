@@ -1,0 +1,43 @@
+<div class="page">
+
+  <div class="overlay">
+
+    <div class="left-panel">
+
+        <img src="assets/pictures/logo.png" alt="Logo">
+
+        <div class="navigation">
+            <a routerLink="/projects">PROJECTS</a>
+        </div>
+
+    </div>
+
+    <div class="middle-panel">
+        
+        <div class="middle-top">
+            <span>{{currentSlide?.meta}}</span>
+        </div>
+
+        <div class="middle-bottom">
+            <span>{{currentSlide?.title}}</span>
+        </div>
+
+    </div>
+
+    <div class="right-panel">
+        
+    </div>
+
+</div>
+
+  <mdb-carousel [indicators]="true" [interval]="5000" (slideChange)="onSlideChange()">
+    <mdb-carousel-item *ngFor="let slide of slides">
+      <img
+        src= {{slide.picture}}
+        class="d-block w-100"
+        alt="Fire in Metal"
+      />
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+</div>
